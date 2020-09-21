@@ -1,6 +1,7 @@
 pipeline {
      agent any
 
+stages{
     stage('Init') {
         checkout scm
     }
@@ -22,5 +23,6 @@ pipeline {
                                 filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
                                 resourceGroup: env.RES_GROUP, 
                                 sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+          }
     }
 }
