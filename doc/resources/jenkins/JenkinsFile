@@ -1,17 +1,19 @@
-node {
-
-    tools{
-        maven 'Maven 3.6.3'
-        jdk 'JDK 9.0.4'
-    }
+pipeline {
+     agent any
 
     stage('Init') {
         checkout scm
     }
 
     stage('Build') {
+        tools{
+        maven 'Maven 3.6.3'
+        jdk 'JDK 9.0.4'
+    }
+    steps {
         sh 'mvn -version'           
         sh 'mvn clean package'
+        }
     }
 
     stage('Publish') {
