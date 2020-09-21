@@ -5,13 +5,10 @@ node {
     }
 
     stage('Build') {
-        tools{
-        maven 'Maven 3.6.3'
-        jdk 'JDK 9.0.4'
-    }
+    def mvnHome = tool name: 'Maven 3.6.3', type: 'maven'
     steps {
-        sh 'mvn -version'           
-        sh 'mvn clean package'
+        sh "${mvnHome}/bin/mvn -version"        
+        sh "${mvnHome}/bin/mvn clean package"
         }
     }
 
