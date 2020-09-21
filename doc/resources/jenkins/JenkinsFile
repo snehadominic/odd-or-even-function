@@ -4,8 +4,8 @@ node {
     }
 
     stage('Build') {
-        sh 'mvn clean package'
         sh 'mvn -version'
+        sh 'mvn clean package'
     }
 
     stage('Publish') {
