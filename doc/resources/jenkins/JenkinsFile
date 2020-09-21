@@ -1,5 +1,5 @@
 node {
-stages{
+
     stage('Init') {
         checkout scm
     }
@@ -22,5 +22,4 @@ stages{
                                 resourceGroup: env.RES_GROUP, 
                                 sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
           }
-    }
 }
