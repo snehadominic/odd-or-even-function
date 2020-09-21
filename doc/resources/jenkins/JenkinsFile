@@ -5,8 +5,13 @@ node {
     }
 
     stage('Build') {
-        sh 'mvn -version'
+        tools {
+           maven 'Maven 3.6.3'    
+        }
+        steps {
+        sh 'mvn -version'           
         sh 'mvn clean package'
+        }
     }
 
     stage('Publish') {
