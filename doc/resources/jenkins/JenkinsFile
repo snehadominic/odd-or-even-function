@@ -4,9 +4,7 @@ node {
     }
 
     stage('Build') {
-        withMaven(maven: 'mvn') {
         sh 'mvn clean package'
-        }
     }
 
     stage('Publish') {
