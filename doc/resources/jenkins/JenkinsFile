@@ -15,6 +15,6 @@ node {
                                 azureCredentialsId: env.AZURE_CRED_ID, 
                                 filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
                                 resourceGroup: env.RES_GROUP, 
-                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+                                sourceDirectory: 'target/azure-functions/sampleoddorevenfunction'
           }
 }
