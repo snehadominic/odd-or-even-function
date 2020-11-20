@@ -5,24 +5,7 @@ node {
     stage('Init'){
         checkout scm
     }
-
-    stage('Azure Login'){
-        withCredentials([azureServicePrincipal(env.AZURE_CRED_ID)]){
-            sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-        }
-    }
-
-    stage('Terraform Init'){
-        sh "${terraform_home}/terraform init -input=false"
-    }
-    stage('Terraform Plan'){
-        sh "${terraform_home}/terraform plan -out=tfplan -input=false"
-    }
-    stage('Terraform Apply'){
-        input 'Apply Plan'
-        sh "${terraform_home}/terraform apply -input=false tfplan"
-    }
-    
+      
     stage('Build') {
         sh 'mvn clean package'
     }
